@@ -30,7 +30,7 @@
                         </li>
 
                         <li>
-                            <a href="{{ url('partenaires') }}" >Partenaires</a>
+                            <a href="{{ url('partenaire') }}" >Partenaires</a>
                         </li>
 
 

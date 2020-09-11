@@ -26,31 +26,21 @@ class HomeController extends Controller
     public function home()
     {
         $apropos = APropo::all()->first();
-        $serviceIntro = ServiceIntro::all()->first();
-        $technologies = Technologie::all();
         $produits = Produit::all();
         $services = Service::all();
-        $messagebienvenu  = MessageBienvenu::all()->first();
+       // $messagebienvenu  = MessageBienvenu::all()->first();
         $carousel = Carousel::all();
-        $icons = Icon::orderBy('created_at','desc')->get();
         $contact = Contact::all()->first();
-        $coordonee = Coordonee::all()->first();
-        $citation = CarouselCitation::all();
 
         defaultLog(Front::class);
         return view('home',
                     compact(
                         'apropos',
-                        'serviceIntro',
-                        'technologies',
                         'produits',
                         'services',
                         'carousel',
-                        'messagebienvenu',
-                        'icons',
-                        'contact',
-                        'coordonee',
-                        'citation'
+                       // 'messagebienvenu',
+                        'contact'
                     ));
     }
 
@@ -96,6 +86,7 @@ class HomeController extends Controller
         $coordonee = Coordonee::all()->first();
         $icons = Icon::orderBy('created_at','desc')->get();
         $citation = CarouselCitation::all();
+
 
         defaultLog(Front::class);
 

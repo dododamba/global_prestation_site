@@ -17,7 +17,13 @@
 
     <style>
         body[data-sidebar=dark] .vertical-menu {
-             background: #122461;
+             background: #034191;
+            }
+
+            .btn-primary {
+            color: #fff;
+            background-color: #034191;
+            border-color: #034191;
             }
 
 
@@ -67,7 +73,7 @@
 
 
     .file-upload-btn:hover {
-            background: #245acf;
+            background: #034191;
             color: #ffffff;
             transition: all .2s ease;
             cursor: pointer;
@@ -96,13 +102,13 @@
 
         .image-upload-wrap {
             margin-top: 20px;
-            border: 4px dashed #245acf;
+            border: 4px dashed #034191;
             position: relative;
         }
 
         .image-dropping,
         .image-upload-wrap:hover {
-            background-color: #245acf;
+            background-color: #034191;
             border: 4px dashed #ffffff;
         }
 
@@ -139,11 +145,11 @@
             width: 200px;
             margin: 0;
             color: #fff;
-            background: #245acf;
+            background: #034191;
             border: none;
             padding: 10px;
             border-radius: 4px;
-            border-bottom: 4px solid #245acf;
+            border-bottom: 4px solid #034191;
             transition: all .2s ease;
             outline: none;
             text-transform: uppercase;
@@ -164,7 +170,7 @@
         }
 
         .store-image:hover {
-            background: #245acf;
+            background: #034191;
             color: #ffffff;
             transition: all .2s ease;
             cursor: pointer;

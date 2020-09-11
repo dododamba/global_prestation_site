@@ -261,6 +261,13 @@
 }
 
 
+section.trusted-partners {
+            background: #d1d3d4;
+            text-align: center;
+            padding: 0;
+            overflow: hidden;
+            position: relative;
+        }
 
 
 

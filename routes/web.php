@@ -110,6 +110,8 @@ Route::group(['middleware' => ['senseiAuth', 'roles']], function () {
     Route::resource('/commentaires', 'Blog\\CommentaireController');
     Route::resource('/tags', 'Blog\\tagsController');
 
+    Route::resource('/partenaire', 'PartenairesController');
+
 
 
 

@@ -262,13 +262,27 @@
 
 
 section.trusted-partners {
-            background: #d1d3d4;
+            background: #fbfbfb;
             text-align: center;
             padding: 0;
             overflow: hidden;
             position: relative;
         }
 
+        .avatar {
+            width: 600px;
+            height: 85px;
+
+            border: 3px solid #034191;
+        }
+
+        .blog-date {
+        background: #034191;
+        display: inline-block;
+        padding: 8px 15px;
+        margin-bottom: 15px;
+        color: #fff;
+}
 
 
     </style>
@@ -349,72 +363,23 @@ section.trusted-partners {
 
                       </div>
                 </div>
-                <div class="col-md-4 col-sm-12">
-                    <div class="blog-item">
-                        <div class="blog-image">
-                            <img src="images/blog1.jpg" alt="Image">
-                        </div>
-                        <div class="blog-content">
-                            <div class="blog-date"><p><i class="fa fa-clock-o"></i> Posted On : 12 May</p></div>
-                            <h3><a href="blog-detail.html">What happened during my first trip alone</a></h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Duis aute irure dolor in reprehenderit.</p>
-                            <div class="blog-author">
-                                <div class="pull-left">
-                                    <p><a href="#"><i class="fa fa-user-o" aria-hidden="true"></i> Jack Richard</a></p>
-                                </div>
-                                <div class="pull-right blog-date-icon">
-                                    <p><i class="fa fa-eye" aria-hidden="true"></i> 24</p>
-                                    <p><i class="fa fa-heart" aria-hidden="true"></i> 5</p>
-                                    <p><i class="fa fa-comment-o" aria-hidden="true"></i> 0</p>
-                                </div>
-                            </div>
-                        </div>
+
+               @foreach ($articles as $item)
+               <div class="col-md-4 col-sm-12">
+                <div class="blog-item">
+                    <div class="blog-image">
+                        <img src="storage/articles/{{ $item->image }}" alt="Image">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date"><p><i class="fa fa-clock-o"></i> Posté il y'a  : {!! human_date($item->created_at) !!}</p></div>
+                        <h3><a href="blog-detail.html">{{ $item->titre }}</a></h3>
+                        <p>{!! sous_chaine($item->contenu, 0, 150) !!} ...</p>
+
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <div class="blog-item">
-                        <div class="blog-image">
-                            <img src="images/blog2.jpg" alt="Image">
-                        </div>
-                        <div class="blog-content">
-                            <div class="blog-date"><p><i class="fa fa-clock-o"></i> Posted On : 12 May</p></div>
-                            <h3><a href="blog-detail.html">remembering the road i went through</a></h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Duis aute irure dolor in reprehenderit.</p>
-                            <div class="blog-author">
-                                <div class="pull-left">
-                                    <p><a href="#"><i class="fa fa-user-o" aria-hidden="true"></i> Jack Richard</a></p>
-                                </div>
-                                <div class="pull-right blog-date-icon">
-                                    <p><i class="fa fa-eye" aria-hidden="true"></i> 24</p>
-                                    <p><i class="fa fa-heart" aria-hidden="true"></i> 5</p>
-                                    <p><i class="fa fa-comment-o" aria-hidden="true"></i> 0</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <div class="blog-item">
-                        <div class="blog-image">
-                            <img src="images/blog3.jpg" alt="Image">
-                        </div>
-                        <div class="blog-content">
-                            <div class="blog-date"><p><i class="fa fa-clock-o"></i> Posted On : 12 May</p></div>
-                            <h3><a href="blog-detail.html">planning fot the perfect familytrip outdoor</a></h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Duis aute irure dolor in reprehenderit.</p>
-                            <div class="blog-author">
-                                <div class="pull-left">
-                                    <p><a href="#"><i class="fa fa-user-o" aria-hidden="true"></i> Jack Richard</a></p>
-                                </div>
-                                <div class="pull-right blog-date-icon">
-                                    <p><i class="fa fa-eye" aria-hidden="true"></i> 24</p>
-                                    <p><i class="fa fa-heart" aria-hidden="true"></i> 5</p>
-                                    <p><i class="fa fa-comment-o" aria-hidden="true"></i> 0</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            </div>
+               @endforeach
+
             </div>
         </div>
     </section>
@@ -426,23 +391,15 @@ section.trusted-partners {
             <div class="row">
                 <div class="col-md-3 col-xs-4">
                     <div class="partners-title">
-                        <h3> Ils nous font  <span>Confiance</span></h3>
+                        <h3 style="color: #034191;"> Ils nous font  <span>Confiance</span></h3>
                     </div>
                 </div>
                 <div class="col-md-9 col-xs-8">
                     <ul class="partners-logo partners-slider">
-                        <li><a href="#"><img src="{{ asset('assets') }}/images/partner1.png" alt="Image"></a></li>
-                        <li><a href="#"><img src="{{ asset('assets') }}/images/partner2.png" alt="Image"></a></li>
-                        <li><a href="#"><img src="{{ asset('assets') }}/images/partner3.png" alt="Image"></a></li>
-                        <li><a href="#"><img src="{{ asset('assets') }}/images/partner4.png" alt="Image"></a></li>
-                        <li><a href="#"><img src="{{ asset('assets') }}/images/partner5.png" alt="Image"></a></li>
-                        <li><a href="#"><img src="{{ asset('assets') }}/images/partner6.png" alt="Image"></a></li>
-                        <li><a href="#"><img src="{{ asset('assets') }}/images/partner1.png" alt="Image"></a></li>
-                        <li><a href="#"><img src="{{ asset('assets') }}/images/partner2.png" alt="Image"></a></li>
-                        <li><a href="#"><img src="{{ asset('assets') }}/images/partner3.png" alt="Image"></a></li>
-                        <li><a href="#"><img src="{{ asset('assets') }}/images/partner4.png" alt="Image"></a></li>
-                        <li><a href="#"><img src="{{ asset('assets') }}/images/partner5.png" alt="Image"></a></li>
-                        <li><a href="#"><img src="{{ asset('assets') }}/images/partner6.png" alt="Image"></a></li>
+                        @foreach ($partenaires as $item)
+                        <li><a href="#"><img src="storage/partenaires/{{ $item->image }}" alt="{{ $item->nom }}" class="avatar"></a></li>
+                        @endforeach
+
                     </ul>
                 </div>
             </div>
@@ -461,7 +418,7 @@ section.trusted-partners {
                         <div class="col-md-12 text-center">
                             <div class="footer-about footer-margin">
                                 <div class="about-logo">
-                                    <h2 class="text-uppercase text-white">Global Prestation</p>
+                                    <h2 class="text-uppercase text-white" style="color: #ffffff;">Global Prestation</p>
                                 </div>
                                 <p>Agence de communication</p>
                                 <div class="about-location">

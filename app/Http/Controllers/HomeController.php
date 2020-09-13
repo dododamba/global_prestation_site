@@ -17,7 +17,8 @@ use App\ServiceIntro;
 use App\Technologie;
 use App\CarouselCitation;
 use App\MessageContact;
-
+use App\Models\Blog\Article;
+use App\Partenaire;
 use Illuminate\Http\Request;
 
 
@@ -32,6 +33,9 @@ class HomeController extends Controller
         $carousel = Carousel::all();
         $contact = Contact::all()->first();
 
+        $partenaires = Partenaire::all();
+        $articles = Article::orderBy('id','desc')->paginate(3);
+
         defaultLog(Front::class);
         return view('home',
                     compact(
@@ -40,7 +44,9 @@ class HomeController extends Controller
                         'services',
                         'carousel',
                        // 'messagebienvenu',
-                        'contact'
+                        'contact',
+                        'partenaires',
+                        'articles'
                     ));
     }
 
@@ -49,11 +55,15 @@ class HomeController extends Controller
     {
         $apropos = APropo::all()->first();
         $services = Service::all();
+        $partenaires = Partenaire::all();
+        $articles = Article::orderBy('id','desc')->get();
 
         defaultLog(Front::class);
 
         return view('about',
-            compact('apropos', 'services'));
+            compact('apropos', 'services',
+            'partenaires',
+            'articles'));
     }
 
 
@@ -66,6 +76,8 @@ class HomeController extends Controller
         $coordonee = Coordonee::all()->first();
         $icons = Icon::orderBy('created_at','desc')->get();
         $citation = CarouselCitation::all();
+        $partenaires = Partenaire::all();
+        $articles = Article::orderBy('id','desc')->get();
 
         defaultLog(Front::class);
 
@@ -74,7 +86,9 @@ class HomeController extends Controller
             'icons',
             'contact',
             'coordonee',
-            'citation'));
+            'citation',
+            'partenaires',
+            'articles'));
     }
 
 
@@ -103,27 +117,28 @@ class HomeController extends Controller
     public function serviceFindDetail($slug)
     {
         $item = Service::where('slug',$slug)->first();
-
+        $partenaires = Partenaire::all();
+        $articles = Article::orderBy('id','desc')->get();
 
         defaultLog(Front::class);
 
-        return view('service_detail',compact('item'));
+        return view('service_detail',compact(
+            'item',
+            'partenaires',
+            'articles'
+        ));
     }
+
+
     public function contact()
     {
         $contact = Contact::all()->first();
-        $coordonee = Coordonee::all()->first();
-        $icons = Icon::orderBy('created_at','desc')->get();
-        $citation = CarouselCitation::all();
+        $partenaires = Partenaire::all();
+        $articles = Article::orderBy('id','desc')->get();
 
         defaultLog(Front::class);
 
-
-        return view('contact',compact(
-        'icons',
-        'contact',
-        'coordonee',
-        'citation'));
+        return view('contact',compact('contact','partenaires','articles'));
     }
 
     public function messageFromUser(Request $request)

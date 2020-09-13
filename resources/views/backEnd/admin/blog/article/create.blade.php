@@ -86,7 +86,6 @@ Article
                                             {!! Form::submit('Enregistrer', ['class' => 'btn btn-primary form-control']) !!}
                                         </div>
                                     </div>
-                                    {!! Form::close() !!}
                             </div>
 
                             <div class="col-md-3">
@@ -115,6 +114,9 @@ Article
                                     </div>
                                    </div>
                             </div>
+
+                            {!! Form::close() !!}
+
                               </div>
                          </div>
                    </div>

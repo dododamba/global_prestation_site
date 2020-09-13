@@ -51,7 +51,7 @@ class ArticleController extends Controller
 
 
         $file = $request->file('media');
-        dd($request);
+
         $data = [
             'titre' => $request->titre,
             'contenu' => $request->contenu,
@@ -59,7 +59,7 @@ class ArticleController extends Controller
              'slug' => 'article-'.str_randomize(25).'-'.$request->titre,
              'image' => 'article-'.str_randomize(25).'-'.$file->getClientOriginalName(),
              'brouillon' => $request->brouillon,
-             'auteur' => Auth::user()->first_name.' '.Auth::user()->last_name
+             'auteur' => Auth::user()->id
 
         ];
 

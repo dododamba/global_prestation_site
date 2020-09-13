@@ -3,6 +3,7 @@
 use App\File as File;
 use App\Log as SenseiLogger;
 use Auth as LaravelAuth;
+use Carbon\Carbon;
 use Illuminate\Support\Str as Str;
 use Illuminate\Support\Facades\Config as Conf;
 
@@ -366,3 +367,11 @@ if (!function_exists('countElement')) {
         return (new $model())::all()->count();
     }
 }
+
+
+if (!function_exists('human_date')) {
+    function human_date($date)
+    {
+      return Carbon::parse($date)->diffForHumans();
+    }
+  }

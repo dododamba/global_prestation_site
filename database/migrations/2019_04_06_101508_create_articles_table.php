@@ -17,7 +17,6 @@ class CreateArticlesTable extends Migration
                 $table->increments('id');
                 $table->string('titre');
                 $table->text('contenu');
-                $table->date('date_creation');
                 $table->integer('categorie');
                 $table->boolean('brouillon');
                 $table->integer('auteur');

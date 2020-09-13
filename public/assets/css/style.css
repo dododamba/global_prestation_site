@@ -1796,7 +1796,7 @@ section.testimonials{
 /* ====================== */
 
 section.trusted-partners{
-  background: #222935;
+  background: #fbfbfb;
   text-align: center;
   padding: 0;
   overflow: hidden;
@@ -1810,7 +1810,7 @@ section.trusted-partners{
   top: 0;
   height: 100%;
   width: 35%;
-  background: #191e27;
+  background: #fbfbfb;
   z-index: 1;
 }
 .partners-logo li{

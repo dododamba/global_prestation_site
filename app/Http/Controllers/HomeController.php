@@ -56,7 +56,8 @@ class HomeController extends Controller
         $apropos = APropo::all()->first();
         $services = Service::all();
         $partenaires = Partenaire::all();
-        $articles = Article::orderBy('id','desc')->get();
+        $articles = Article::orderBy('id','desc')->paginate(3);
+
 
         defaultLog(Front::class);
 
@@ -77,7 +78,8 @@ class HomeController extends Controller
         $icons = Icon::orderBy('created_at','desc')->get();
         $citation = CarouselCitation::all();
         $partenaires = Partenaire::all();
-        $articles = Article::orderBy('id','desc')->get();
+        $articles = Article::orderBy('id','desc')->paginate(3);
+
 
         defaultLog(Front::class);
 
@@ -118,7 +120,8 @@ class HomeController extends Controller
     {
         $item = Service::where('slug',$slug)->first();
         $partenaires = Partenaire::all();
-        $articles = Article::orderBy('id','desc')->get();
+        $articles = Article::orderBy('id','desc')->paginate(3);
+
 
         defaultLog(Front::class);
 
@@ -134,7 +137,8 @@ class HomeController extends Controller
     {
         $contact = Contact::all()->first();
         $partenaires = Partenaire::all();
-        $articles = Article::orderBy('id','desc')->get();
+        $articles = Article::orderBy('id','desc')->paginate(3);
+
 
         defaultLog(Front::class);
 

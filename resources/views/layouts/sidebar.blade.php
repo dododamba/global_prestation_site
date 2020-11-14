@@ -22,9 +22,11 @@
                         <span>Elements graphiques</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li>
+                         {{--
+                             <li>
                             <a href="{{ url('messagebienvenu') }}" > Mot du CEO</a>
                         </li>
+                            --}}
                         <li>
                             <a href="{{ url('apropos') }}" > A Propos</a>
                         </li>
@@ -59,20 +61,29 @@
 
 
                 <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                    <a href="{{ url('service') }}" >
                         <i class="bx bx-shopping-bag"></i>
-                        <span>Service et Produits</span>
+                        <span>Service </span>
                     </a>
-                    <ul class="sub-menu" aria-expanded="false">
+
+
+                          {{--
+                            <ul class="sub-menu" aria-expanded="false">
                         <li>
                             <a href="{{ url('service') }}" >Service</a>
                         </li>
-                        <li>
+                             <li>
+                            <a href="{{ url('messagebienvenu') }}" > Mot du CEO</a>
+                        </li>
+
+                         <li>
                             <a href="{{ url('produit') }}" >Produit</a>
                         </li>
 
 
                      </ul>
+                            --}}
+
                 </li>
 
 

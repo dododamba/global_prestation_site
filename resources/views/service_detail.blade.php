@@ -30,19 +30,19 @@
                     <div class="thumbnail-images">
                         <div class="slider slider-store">
                             <div>
-                               <img src="/storage/services/{{ $item->image }}" alt="1">
+                               <img src="{{url('storage')}}/services/{{ $item->image }}" alt="1">
                             </div>
                             <div>
-                                <img src="/storage/services/{{ $item->image }}" alt="1">
+                                <img src="{{url('storage')}}/services/{{ $item->image }}" alt="1">
                             </div>
                             <div>
-                                <img src="/storage/services/{{ $item->image }}" alt="1">
+                                <img src="{{url('storage')}}/services/{{ $item->image }}" alt="1">
                             </div>
                             <div>
-                                <img src="/storage/services/{{ $item->image }}" alt="1">
+                                <img src="{{url('storage')}}/services/{{ $item->image }}" alt="1">
                             </div>
                             <div>
-                                <img src="/storage/services/{{ $item->image }}" alt="1">
+                                <img src="{{url('storage')}}/services/{{ $item->image }}" alt="1">
                             </div>
                         </div>
 
@@ -125,25 +125,22 @@
         </div>
 
         <div class="row slider-shop">
-            <div class="col-md-3 col-xs-12">
+              @foreach ($services as $item)
+              <div class="col-md-3 col-xs-12">
                 <div class="rt-product-wrapper">
                     <div class="product-thumbnail-wrapper">
                             <div class="product-image">
-                                <img src="images/shop1.png" class="" alt="product-list">
+                                <img src="{{url('storage')}}/services/{{ $item->image }}" class="" alt="product-list">
                             </div>
-                        <div class="product-label"><span class="onsale">Sale</span></div>
+                        <div class="product-label"><span class="onsale">Disponible</span></div>
                     </div>
                     <div class="rt-product-meta-wrapper">
                         <h3 class="product_title">
-                            <a href="store-detail.html">Trekking Bags</a>
+                            <a href="store-detail.html">{{ $item->nom }}</a>
                         </h3>
                         <div class="rt-cartprice-wrapper">
                             <span class="price mar-bottom-20">
-                                <del>
-                                    <span class="rt-price-amount">
-                                        <span >$</span>370.00
-                                    </span>
-                                </del>
+
                                 <ins>
                                     <span class="rrt-price-amount">
                                         <span>$</span>320.00
@@ -151,246 +148,13 @@
                                 </ins>
                             </span>
                             <div class="button">
-                                <a href="store-detail.html" class="btn-blue btn-red">Add to cart</a>
+                                <a href="{{ url('/services', $item->slug) }}" class="btn-blue btn-red">Détail</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-3 col-xs-12">
-                <div class="rt-product-wrapper">
-                    <div class="product-thumbnail-wrapper">
-                            <div class="product-image">
-                                <img src="images/shop3.png" class="" alt="product-list">
-                            </div>
-                        <div class="product-label"><span class="onsale pull-left">Sale</span></div>
-                        <div class="product-label"><span class="hot pull-right">Hot</span></div>
-                    </div>
-                    <div class="rt-product-meta-wrapper">
-
-                        <h3 class="product_title">
-                            <a href="store-detail.html">Rope Cutter</a>
-                        </h3>
-                        <div class="rt-cartprice-wrapper">
-                            <span class="price mar-bottom-20">
-                                <del>
-                                    <span class="rt-price-amount">
-                                        <span >$</span>370.00
-                                    </span>
-                                </del>
-                                <ins>
-                                    <span class="rrt-price-amount">
-                                        <span>$</span>320.00
-                                    </span>
-                                </ins>
-                            </span>
-                            <div class="button">
-                                <a href="store-detail.html" class="btn-blue btn-red">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-xs-12">
-                <div class="rt-product-wrapper">
-                    <div class="product-thumbnail-wrapper">
-                            <div class="product-image">
-                                <img src="images/shop5.png" class="" alt="product-list">
-                            </div>
-                        <div class="product-label"><span class="onsale">Sale</span></div>
-                    </div>
-                    <div class="rt-product-meta-wrapper">
-                        <h3 class="product_title">
-                            <a href="store-detail.html">Clip Hanger</a>
-                        </h3>
-                        <div class="rt-cartprice-wrapper">
-                            <span class="price mar-bottom-20">
-                                <del>
-                                    <span class="rt-price-amount">
-                                        <span >$</span>370.00
-                                    </span>
-                                </del>
-                                <ins>
-                                    <span class="rrt-price-amount">
-                                        <span>$</span>320.00
-                                    </span>
-                                </ins>
-                            </span>
-                            <div class="button">
-                                <a href="store-detail.html" class="btn-blue btn-red">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-xs-12">
-                <div class="rt-product-wrapper">
-                    <div class="product-thumbnail-wrapper">
-                            <div class="product-image">
-                                <img src="images/shop4.png" class="" alt="product-list">
-                            </div>
-                        <div class="product-label"><span class="onsale">Sale</span></div>
-                    </div>
-                    <div class="rt-product-meta-wrapper">
-                        <h3 class="product_title">
-                            <a href="store-detail.html">Trekking Rods</a>
-                        </h3>
-                        <div class="rt-cartprice-wrapper">
-                            <span class="price mar-bottom-20">
-                                <del>
-                                    <span class="rt-price-amount">
-                                        <span >$</span>370.00
-                                    </span>
-                                </del>
-                                <ins>
-                                    <span class="rrt-price-amount">
-                                        <span>$</span>320.00
-                                    </span>
-                                </ins>
-                            </span>
-                            <div class="button">
-                                <a href="store-detail.html" class="btn-blue btn-red">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-xs-12">
-                <div class="rt-product-wrapper">
-                    <div class="product-thumbnail-wrapper">
-                            <div class="product-image">
-                                <img src="images/shop1.png" class="" alt="product-list">
-                            </div>
-                        <div class="product-label"><span class="onsale">Sale</span></div>
-                    </div>
-                    <div class="rt-product-meta-wrapper">
-                        <h3 class="product_title">
-                            <a href="store-detail.html">Suitcase</a>
-                        </h3>
-                        <div class="rt-cartprice-wrapper">
-                            <span class="price mar-bottom-20">
-                                <del>
-                                    <span class="rt-price-amount">
-                                        <span >$</span>370.00
-                                    </span>
-                                </del>
-                                <ins>
-                                    <span class="rrt-price-amount">
-                                        <span>$</span>320.00
-                                    </span>
-                                </ins>
-                            </span>
-                            <div class="button">
-                                <a href="store-detail.html" class="btn-blue btn-red">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-xs-12">
-                <div class="rt-product-wrapper">
-                    <div class="product-thumbnail-wrapper">
-                            <div class="product-image">
-                                <img src="images/shop3.png" class="" alt="product-list">
-                            </div>
-                        <div class="product-label"><span class="onsale">Sale</span></div>
-                    </div>
-                    <div class="rt-product-meta-wrapper">
-                        <h3 class="product_title">
-                            <a href="store-detail.html">Trekking Bags</a>
-                        </h3>
-                        <div class="rt-cartprice-wrapper">
-                            <span class="price mar-bottom-20">
-                                <del>
-                                    <span class="rt-price-amount">
-                                        <span >$</span>370.00
-                                    </span>
-                                </del>
-                                <ins>
-                                    <span class="rrt-price-amount">
-                                        <span>$</span>320.00
-                                    </span>
-                                </ins>
-                            </span>
-                            <div class="button">
-                                <a href="store-detail.html" class="btn-blue btn-red">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-xs-12">
-                <div class="rt-product-wrapper">
-                    <div class="product-thumbnail-wrapper">
-                            <div class="product-image">
-                                <img src="images/shop5.png" class="" alt="product-list">
-                            </div>
-                        <div class="product-label"><span class="onsale pull-left">Sale</span></div>
-                        <div class="product-label"><span class="hot pull-right">Hot</span></div>
-                    </div>
-                    <div class="rt-product-meta-wrapper">
-                        <h3 class="product_title">
-                            <a href="store-detail.html">Trekking Shoes</a>
-                        </h3>
-                        <div class="rt-cartprice-wrapper">
-                            <span class="price mar-bottom-20">
-                                <del>
-                                    <span class="rt-price-amount">
-                                        <span >$</span>370.00
-                                    </span>
-                                </del>
-                                <ins>
-                                    <span class="rrt-price-amount">
-                                        <span>$</span>320.00
-                                    </span>
-                                </ins>
-                            </span>
-                            <div class="button">
-                                <a href="store-detail.html" class="btn-blue btn-red">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-xs-12">
-                <div class="rt-product-wrapper">
-                    <div class="product-thumbnail-wrapper">
-                            <div class="product-image">
-                                <img src="images/shop4.png" class="" alt="product-list">
-                            </div>
-                        <div class="product-label"><span class="onsale">Sale</span></div>
-                    </div>
-                    <div class="rt-product-meta-wrapper">
-                        <h3 class="product_title">
-                            <a href="store-detail.html">Trekking Ropes</a>
-                        </h3>
-                        <div class="rt-cartprice-wrapper">
-                            <span class="price mar-bottom-20">
-                                <del>
-                                    <span class="rt-price-amount">
-                                        <span >$</span>370.00
-                                    </span>
-                                </del>
-                                <ins>
-                                    <span class="rrt-price-amount">
-                                        <span>$</span>320.00
-                                    </span>
-                                </ins>
-                            </span>
-                            <div class="button">
-                                <a href="store-detail.html" class="btn-blue btn-red">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+              @endforeach
         </div>
     </div>
 </section>

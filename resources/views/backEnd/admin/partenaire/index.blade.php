@@ -108,7 +108,6 @@ Article
 
 </div>
 <!-- container-fluid -->
-</div>
 
 @endsection
 

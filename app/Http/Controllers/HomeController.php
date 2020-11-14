@@ -121,6 +121,9 @@ class HomeController extends Controller
         $item = Service::where('slug',$slug)->first();
         $partenaires = Partenaire::all();
         $articles = Article::orderBy('id','desc')->paginate(3);
+        $services = Service::where('slug','<>',$slug)->get();
+
+        //dd($services);
 
 
         defaultLog(Front::class);
@@ -128,7 +131,8 @@ class HomeController extends Controller
         return view('service_detail',compact(
             'item',
             'partenaires',
-            'articles'
+            'articles',
+            'services'
         ));
     }
 

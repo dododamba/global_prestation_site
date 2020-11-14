@@ -1624,7 +1624,7 @@ section.bucket-list{padding-bottom: 0;}
 
 section.trip-ad{
   position: relative;
-  background: url(../images/adbg.jpg) no-repeat;
+  background: url(../images/adbg.png) no-repeat;
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
@@ -2506,7 +2506,7 @@ sidebar*/
   color: #fff;
 }
 .sidebar-helpline{
-  background: url(../images/adbg.jpg) no-repeat;
+  background: url(../images/adbg.png) no-repeat;
   background-size: cover;
   position: relative;
   padding: 30px;
@@ -5235,7 +5235,7 @@ section.testimonial-1{
   background: #23282D;
 }
 .dark section.trip-ad{
-  background: url(../images/adbg.jpg) no-repeat;
+  background: url(../images/adbg.png) no-repeat;
   background-position: center;
   background-attachment: fixed;
   background-size: cover;

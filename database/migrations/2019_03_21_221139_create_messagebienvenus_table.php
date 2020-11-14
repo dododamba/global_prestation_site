@@ -13,7 +13,7 @@ class CreateMessagebienvenusTable extends Migration
     public function up()
     {
 
-            Schema::create('messagebienvenus', function(Blueprint $table) {
+            Schema::create('message_bienvenus', function(Blueprint $table) {
                 $table->increments('id');
                 $table->text('message');
                 $table->string('slug')->nullable();

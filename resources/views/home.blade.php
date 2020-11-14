@@ -1,5 +1,9 @@
 @extends('layout')
 @section('title','Accueil')
+@section('css')
+    <style>
+    </style>
+@endsection
 @section('content')
 <section id="home_banner_video" class="banner-style-1" style="border-bottom: 3%;">
     <div class="video-banner">
@@ -19,22 +23,48 @@
     <div class="container">
         <div class="section-title text-center">
             <h2>Services</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Duis aute irure dolor in reprehenderit..</p>
+            <p>
+                Nous sommes une agence <br>
+                de commuication, nous offrons différent <br>
+                gamme de service, allant de la communication <br>
+               au sein d'une entreprise à la prestation des services <br>
+                dans le domaine du marketing digital et web<br> <br> <br>
+            </p>
         </div>
         <div class="row">
 
-            @foreach ($services as $item)
-            <div class="col-md-3 col-xs-6">
-                <div class="at-item box-item">
-                    <div class="at-image">
-                        <img src="storage/services/{{ $item->image }}" alt="Image" style="width: 200px; height: 200px;">
-                        <div class="at-overlay"></div>
-                    </div>
+            <div class="row slider-shop">
+                @foreach ($services as $item)
+                <div class="col-md-3 col-xs-12">
+                  <div class="rt-product-wrapper">
+                      <div class="product-thumbnail-wrapper">
+                              <div class="product-image">
+                                  <img src="{{url('storage')}}/services/{{ $item->image }}" class="" alt="product-list" width="50" height="200">
+                              </div>
+                          <div class="product-label"><span class="onsale">Disponible</span></div>
+                      </div>
+                      <div class="rt-product-meta-wrapper">
+                          <h3 class="product_title">
+                              <a href="store-detail.html">{{ $item->nom }}</a>
+                          </h3>
+                          <div class="rt-cartprice-wrapper">
+                              <span class="price mar-bottom-20">
 
-                </div>
-            </div>
-            @endforeach
-
+                                  <ins>
+                                      <span class="rrt-price-amount">
+                                          <span>$</span>320.00
+                                      </span>
+                                  </ins>
+                              </span>
+                              <div class="button">
+                                  <a href="{{ url('/services', $item->slug) }}" class="btn-blue btn-red">Détail</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+                @endforeach
+          </div>
 
         </div>
 
@@ -44,19 +74,40 @@
 <section class="trip-ad">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-xs-12">
+            <div class="col-md-8 col-xs-12">
 
                 <div class="trip-ad-content">
                     <div class="ad-title">
-                        <h2>Explore The <span>Thailand Trip</span></h2>
+                        <h2><span>Notre vision</span></h2>
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismody tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adi minim veniam, qu nostrud exerci tation dolore magna aliquam erat volutpat.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismody tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adi minim veniam, qu nostrud exerci tation dolore magna aliquam erat volutpat.</p>
+                   <ol>
+                       <li>Encourager les jeunes entreprises à communiquer à bas prix.</li>
+                       <li>Faciliter la communication</li>
+                       <li>Promouvoir le développement des petites entreprises</li>
+                   </ol>
 
                 </div>
             </div>
-            <div class="col-md-6 col-xs-12">
+            <div class="col-md-4 col-xs-12">
 
+            <div class="trip-ad-content">
+                    <div class="ad-title">
+                        <h2><span style="color:  #fc0606">Notre Paticularité</span></h2>
+                    </div>
+
+                    <p style="color:  #f8f0f0">Comme l'indique si bien par son nom, Global Prestation se trouve dans la diversité de ses domaines d'action : </p>
+                   <ol>
+                       <li style="color:  #ffffff">- Publicité</li>
+                       <li style="color:  #ffffff">- Evènementiel</li>
+                       <li style="color:  #ffffff">- Mode</li>
+                       <li style="color:  #ffffff">- Mannequinat</li>
+                       <li style="color:  #ffffff">- Spectacle</li>
+                       <li style="color:  #ffffff">- Service d'accueil</li>
+                       <li style="color:  #ffffff">- décoration</li>
+                       <li style="color:  #ffffff">- Location des matériels de cérémonie</li>
+                   </ol>
+
+                </div>
             </div>
         </div>
     </div>

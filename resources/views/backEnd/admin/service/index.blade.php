@@ -60,7 +60,7 @@ Service
                         <table class="table table-bordered table-striped table-hover" id="tblservice">
                             <thead>
                                 <tr>
-                                    <th>ID</th><th>Nom</th><th>Image</th><th>desciption</th><th>Actions</th>
+                                    <th>ID</th><th>Nom</th><th>Image</th><th>desciption</th> <th>Prix</th> <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -73,9 +73,25 @@ Service
                                         </div>
                                     </td><td>{{ $item->texte }}</td>
                                     <td>
+
+                                       @if($item->prix) 
+                                        <a  href="{{route('service.prix', $item->id)}}" class="btn btn-default pull-right"> 
+                                                {{ $item->prix->prix }} F CFA /   {{ $item->prix->nombre }} 
+                                         </a>
+
+                                          
+                                       @else 
+
+                                        <a  href="{{route('service.prix', $item->id)}}" class="btn btn-primary pull-right"> voir les prix </a>
+                                       @endif
+                                     
+                                    </td>
+                                    <td>
                                         <div class="row">
                                             <a href="{{ url('service', $item->id) }}" class="btn btn-xs btn-info">Detail</a> &nbsp; &nbsp;
-                                            <a href="{{ route('service.edit', $item->id) }}" class="btn btn-xs btn-warning">Modifier</a>
+                                            <a href="{{ route('service.edit', $item->id) }}" class="btn btn-xs btn-warning">Modifier</a> &nbsp; &nbsp;
+
+                                             <a href="{{ route('service.edit', $item->id) }}" class="btn btn-xs btn-danger">Supprimer</a>
                                         </div>
                                     </td>
                                 </tr>

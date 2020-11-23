@@ -112,7 +112,9 @@ Route::group(['middleware' => ['senseiAuth', 'roles']], function () {
 
     Route::resource('/partenaire', 'PartenairesController');
 
+    Route::get('service/{id}/prix', 'ServiceController@prix')->name('service.prix');
 
+    Route::post('service/prix', 'ServiceController@prixStrore')->name('prix.store');
 
 
 

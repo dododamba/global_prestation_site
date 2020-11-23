@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use App\Service;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use App\Prix;
+
 use Session;
 
 class ServiceController extends Controller
@@ -174,4 +176,54 @@ class ServiceController extends Controller
         return redirect('service');
     }
 
+
+    /* Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     *
+     * @return Response
+     */
+    public function prix($id)
+    {
+        if (Service::findOrFail($id))   {
+            $service = Service::findOrFail($id);
+            $prix = Prix::where('service',$id);
+            return view('backEnd.admin.service.prix', compact('service','prix'));
+        }
+
+        return redirect()->back();
+
+    }
+
+
+
+     /* Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     *
+     * @return Response
+     */
+    public function prixStrore(Request $request)
+    {
+       $data = [
+            'prix' => $request->prix, 
+            'nombre' => (integer)$request->nombre, 
+            'promotionel' => $request->promotion, 
+            'exipired_at' => $request->date, 
+            'service' => (integer)$request->service,
+            'slug'  => 'prix-'.str_randomize(25)
+       ];
+
+
+       if (Prix::create($data)) {
+           session()->flush('success','Prix ajouté avec succès! ');
+
+           return redirect()->route('service.index');
+       }
+
+         session()->flush('error','Le Prix n\'a pas été ajouté! ');
+        return redirect()->back();
+
+
+    }
 }

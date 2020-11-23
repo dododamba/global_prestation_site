@@ -19,6 +19,7 @@ class CreatePrixesTable extends Migration
             $table->double('promotionel')->nullable();
             $table->date('exipired_at')->nullable();
             $table->integer('service')->nullable();
+            $table->integer('nombre')->nullable();
             $table->string('slug')->nullable();
             $table->softDeletes();
             $table->timestamps();

@@ -50,11 +50,19 @@
                           <div class="rt-cartprice-wrapper">
                               <span class="price mar-bottom-20">
 
-                                  <ins>
+                                 @if($item->prix) 
+                                    <ins>
                                       <span class="rrt-price-amount">
-                                          <span>$</span>320.00
+                                           {{$item->prix->prix}} <span>F CFA</span> / {{$item->prix->nombre}}
                                       </span>
                                   </ins>
+                                 @else
+                                  <ins>
+                                      <span class="rrt-price-amount">
+                                          
+                                      </span>
+                                  </ins>
+                                 @endif
                               </span>
                               <div class="button">
                                   <a href="{{ url('/services', $item->slug) }}" class="btn-blue btn-red">Détail</a>
@@ -64,12 +72,21 @@
                   </div>
               </div>
                 @endforeach
+                  
           </div>
 
         </div>
 
+
+<div class="section-title text-center">
+          <a href="{{url('services')}}" class="btn btn-primary text-center">
+                      Voir tous les services
+                   </a>   
     </div>
 </section>
+
+
+
 
 <section class="trip-ad">
     <div class="container">

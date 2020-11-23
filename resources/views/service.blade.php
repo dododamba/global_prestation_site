@@ -68,46 +68,52 @@
               <section id="our_store" class="our_store">
                 <div class="container">
 
-                    <div class="row">
-                        @foreach( $services as $item )
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="rt-product-wrapper">
-                                <div class="product-thumbnail-wrapper">
-                                    <div class="avatar-preview mb-3">
-                                        <img  src="storage/services/{{ $item->image }}" alt="" >
-                                    </div>
-                                </div>
-                                <div class="rt-product-meta-wrapper">
-                                    <h3 class="product_title">
-                                        <a href="shop-detail.html">{{ $item->nom }}</a>
-                                    </h3>
-                                    <div class="rt-cartprice-wrapper">
-                                        <span class="price mar-bottom-20">
-                                            <ins>
-                                                <span class="rrt-price-amount">
-                                                    <span >A parti de : </span>
-                                                </span>
-                                            </ins>
-                                            <ins>
-                                                <span class="rrt-price-amount">
-                                                    <span>320.00</span> F CFA
-                                                </span>
-                                            </ins>
-                                        </span>
+
+  <div class="row ">
+                @foreach ($services as $item)
+                <div class="col-md-3 col-xs-12">
+                  <div class="rt-product-wrapper">
+                      <div class="product-thumbnail-wrapper">
+                              <div class="product-image">
+                                  <img src="{{url('storage')}}/services/{{ $item->image }}" class="" alt="product-list" width="50" height="200">
+                              </div>
+                          <div class="product-label"><span class="onsale">Disponible</span></div>
+                      </div>
+                      <div class="rt-product-meta-wrapper">
+                          <h3 class="product_title">
+                              <a href="store-detail.html">{{ $item->nom }}</a>
+                          </h3>
+                          <div class="rt-cartprice-wrapper">
+                              <span class="price mar-bottom-20">
+
+                                 @if($item->prix) 
+                                    <ins>
+                                      <span class="rrt-price-amount">
+                                           {{$item->prix->prix}} <span>F CFA</span> / {{$item->prix->nombre}}
+                                      </span>
+                                  </ins>
+                                 @else
+                                  <ins>
+                                      <span class="rrt-price-amount">
+                                          
+                                      </span>
+                                  </ins>
+                                 @endif
+                              </span>
+                              <div class="button">
+                                  <a href="{{ url('/services', $item->slug) }}" class="btn-blue btn-red">Détail</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+                @endforeach
+                  
+          </div>
 
 
 
-                                        <div class="button">
-                                            <a href="{{ url('/services', $item->slug) }}" class="btn-blue btn-red">Détail</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-
-                    </div>
-
+                  
                 </div>
             </section>
 

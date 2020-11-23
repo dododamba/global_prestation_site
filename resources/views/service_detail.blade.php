@@ -56,11 +56,13 @@
                         <div class="entry-summary">
                             <h2 class="single-product-title">{{ $item->nom }}</h2>
                             <div class="rt-product-meta-wrapper">
+
+                                @if($item->prix) 
                                 <span class="price">
 
                                     <ins>
                                         <span class="rt-price-amount">
-                                            <span>A Partir de 5000</span> Francs
+                                            <span class="sku_wrapper">A Partir de {{$item->prix->prix}} </span> Francs
                                         </span>
                                     </ins>
                                 </span>
@@ -71,11 +73,33 @@
 
                             <div class="product_meta mar-top-30">
 
-                                <span class="sku_wrapper">Quantité: <span class="sku">100</span></span>
+                                <span class="sku_wrapper">Quantité: <span class="sku">{{$item->prix->nombre}}</span></span>
 
 
 
                             </div>
+                            @else
+                            <span class="price">
+
+                                    <ins>
+                                        <span class="rt-price-amount">
+                                            <span>A Partir de -- </span> Francs
+                                        </span>
+                                    </ins>
+                                </span>
+                            </div>
+
+
+
+
+                            <div class="product_meta mar-top-30">
+
+                                <span class="sku_wrapper">Quantité: <span class="sku">--</span></span>
+
+
+
+                            </div>
+                            @endif
                         </div>
 
                     </div>
@@ -124,38 +148,47 @@
             </div>
         </div>
 
-        <div class="row slider-shop">
-              @foreach ($services as $item)
-              <div class="col-md-3 col-xs-12">
-                <div class="rt-product-wrapper">
-                    <div class="product-thumbnail-wrapper">
-                            <div class="product-image">
-                                <img src="{{url('storage')}}/services/{{ $item->image }}" class="" alt="product-list">
-                            </div>
-                        <div class="product-label"><span class="onsale">Disponible</span></div>
-                    </div>
-                    <div class="rt-product-meta-wrapper">
-                        <h3 class="product_title">
-                            <a href="store-detail.html">{{ $item->nom }}</a>
-                        </h3>
-                        <div class="rt-cartprice-wrapper">
-                            <span class="price mar-bottom-20">
+  <div class="row slider-shop">
+                @foreach ($services as $item)
+                <div class="col-md-3 col-xs-12">
+                  <div class="rt-product-wrapper">
+                      <div class="product-thumbnail-wrapper">
+                              <div class="product-image">
+                                  <img src="{{url('storage')}}/services/{{ $item->image }}" class="" alt="product-list" width="50" height="200">
+                              </div>
+                          <div class="product-label"><span class="onsale">Disponible</span></div>
+                      </div>
+                      <div class="rt-product-meta-wrapper">
+                          <h3 class="product_title">
+                              <a href="store-detail.html">{{ $item->nom }}</a>
+                          </h3>
+                          <div class="rt-cartprice-wrapper">
+                              <span class="price mar-bottom-20">
 
-                                <ins>
-                                    <span class="rrt-price-amount">
-                                        <span>$</span>320.00
-                                    </span>
-                                </ins>
-                            </span>
-                            <div class="button">
-                                <a href="{{ url('/services', $item->slug) }}" class="btn-blue btn-red">Détail</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-              @endforeach
-        </div>
+                                 @if($item->prix) 
+                                    <ins>
+                                      <span class="rrt-price-amount">
+                                           {{$item->prix->prix}} <span>F CFA</span> / {{$item->prix->nombre}}
+                                      </span>
+                                  </ins>
+                                 @else
+                                  <ins>
+                                      <span class="rrt-price-amount">
+                                          
+                                      </span>
+                                  </ins>
+                                 @endif
+                              </span>
+                              <div class="button">
+                                  <a href="{{ url('/services', $item->slug) }}" class="btn-blue btn-red">Détail</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+                @endforeach
+                  
+          </div>
     </div>
 </section>
 
